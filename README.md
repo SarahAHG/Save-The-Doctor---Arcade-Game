@@ -12,8 +12,10 @@ _______________________________________
 
 # How to play the game:
 - User can play the game usig the arrow kyes
- __|↑|__ 
- |← ↓ →|
+___________
+__|↑|__ 
+|← ↓ →|
+ __________
 - avoid hitting the enemies to win
 _______________________________________
 
