@@ -21,8 +21,9 @@ _______________________________________
 
 # How to intall the game:
 1. Download this clone on your machine
-2. Open the HTML file
-3. Start playing
+2. Extract the file 
+3. Open the HTML file
+4. Start playing
 _______________________________________
 
 # Used Languages for coding :
@@ -56,5 +57,5 @@ _______________________________________
  * When level increase, enemies can change accordingly, based on the given story line.
 _______________________________________
 
-Written by: SARAH ALOWIDAH
-Contcat: SarahAlowidah@gmail.com
+- Written by: SARAH ALOWIDAH
+- Contcat: SarahAlowidah@gmail.com
