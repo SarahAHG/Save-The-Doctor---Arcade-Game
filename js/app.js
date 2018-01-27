@@ -1,3 +1,4 @@
+"use strict";
 /* Enemy */
 // Enemies player must avoid
 var Enemy = function(x, y, speed) {
@@ -21,7 +22,7 @@ Enemy.prototype.update = function(dt) {
     if (this.x >= 505) {
         this.x = 0;
     }
-    checkCollision(this); //in case a collision happens between player Vs enemy
+    this.checkCollision(); //in case a collision happens between player Vs enemy
 };
 
 // Draw the enemy on the screen, required method for the game
@@ -52,49 +53,24 @@ Player.prototype.render = function() {
 // speed of the (arrow keys/input)
 Player.prototype.handleInput = function(input) {
     if (input == "left") {
-        player.x -= player.speed;
+        this.x -= this.speed;
     }
     if (input == "up") {
-        player.y -= player.speed - 25;
+        this.y -= this.speed - 25;
     }
     if (input == "right") {
-        player.x += player.speed;
+        this.x += this.speed;
     }
     if (input == "down") {
-        player.y += player.speed - 25;
+        this.y += this.speed - 25;
     }
     console.log("Input is: " + input);
-};
-
-// Function to display player's score
-var displayScoreAndLevel = function(theScore, theLevel) {
-    var canvas = document.getElementsByTagName("canvas");
-    var canvasTag = canvas[0];
-
-    // show user score and level 
-    scoreAndLevel.innerHTML = "  |  " + "Score: " + theScore +
-        "  |  " + "Level: " + theLevel + "  |  ";
-    document.body.insertBefore(scoreAndLevel, canvasTag[0]);
-};
-
-/* Enemies Vs Player (if Collision happens) */
-var checkCollision = function(theEnemy) {
-    // check for collision between enemy and player
-    if (player.y + 150 >= theEnemy.y + 90 &&
-        player.x + 28 <= theEnemy.x + 90 &&
-        player.y + 80 <= theEnemy.y + 137 &&
-        player.x + 78 >= theEnemy.x + 10) {
-        console.log("collided");
-        //alert("You just got Exterminated!");
-        player.x = 202.5;
-        player.y = 380;
-    }
 
     // check if player reach top of canvas what happens 
     // if wins increase points  
-    if (player.y + 63 <= 0) {
-        player.x = 202.5;
-        player.y = 380;
+    if (this.y + 50 <= 0) {
+        this.x = 218;
+        this.y = 399;
         console.log("Awesome, you have made it!");
         //alert("Awesome, you have made it!")
 
@@ -110,15 +86,42 @@ var checkCollision = function(theEnemy) {
 
     // if player go off canvas, make sure it stays on canvas
     // player canvas boundaries
-    if (player.y > 380) {
-        player.y = 380;
+    if (this.y > 399) { //buttom of the canvas
+        this.y = 399;
     }
-    if (player.x > 402.5) {
-        player.x = 402.5;
+    if (this.x > 430.5) { //rigt of the canvas
+        this.x = 430.5;
     }
-    if (player.x < 2.5) {
-        player.x = 2.5;
+    if (this.x < 2.5) { //left of the canvas
+        this.x = 2.5;
     }
+
+};
+
+// Function to display player's score
+var displayScoreAndLevel = function(theScore, theLevel) {
+    var canvas = document.getElementsByTagName("canvas");
+    var canvasTag = canvas[0];
+
+    // show user score and level 
+    scoreAndLevel.innerHTML = "  |  " + "Score: " + theScore +
+        "  |  " + "Level: " + theLevel + "  |  ";
+    document.body.insertBefore(scoreAndLevel, canvasTag[0]);
+};
+
+/* Enemies Vs Player (if Collision happens) */
+Enemy.prototype.checkCollision = function() {
+    // check for collision between enemy and player
+    if (player.y + 143 >= this.y + 92 && 
+        player.x + 27 <= this.x + 80 && 
+        player.y + 59 <= this.y + 136 && 
+        player.x + 38 >= this.x + 10) { 
+        console.log("collided");
+        //alert("You just got Exterminated!");
+        player.x = 218;
+        player.y = 399;
+    }
+
 };
 
 // Increase number of enemies on screen based on player's score
@@ -140,7 +143,7 @@ var Difficulty = function(enemiesNum) {
 // Enemy randomly placed vertically within section of canvas
 // Declare new score and gameLevel variables to store score and level
 var allEnemies = [];
-var player = new Player(202.5, 380, 50);
+var player = new Player(218, 399, 50);
 var score = 0;
 var gameLevel = 1;
 var scoreAndLevel = document.createElement("div");
