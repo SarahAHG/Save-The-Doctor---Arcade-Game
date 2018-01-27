@@ -112,9 +112,9 @@ var displayScoreAndLevel = function(theScore, theLevel) {
 /* Enemies Vs Player (if Collision happens) */
 Enemy.prototype.checkCollision = function() {
     // check for collision between enemy and player
-    if (player.y + 143 >= this.y + 92 && 
+    if (player.y + 139 >= this.y + 90 && 
         player.x + 27 <= this.x + 80 && 
-        player.y + 59 <= this.y + 136 && 
+        player.y + 53 <= this.y + 131 && 
         player.x + 38 >= this.x + 10) { 
         console.log("collided");
         //alert("You just got Exterminated!");
