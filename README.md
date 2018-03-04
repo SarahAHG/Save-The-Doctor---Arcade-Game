@@ -8,6 +8,8 @@ _______________________________________
 
 # About "Save The Docotr Game":
 To **save** the doctor, the player must steer the TARDIS to the space without hitting or colliding with the enemies AKA "Daleks"
+You cant check a demo for the game here https://sarahahg.github.io/Save-The-Doctor---Arcade-Game/
+
 _______________________________________
 
 # How to play the game:
